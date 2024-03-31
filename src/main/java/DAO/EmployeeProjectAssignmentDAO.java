@@ -3,9 +3,9 @@ package DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import org.example.Employee;
-import org.example.EmployeeProjectAssignment;
-import org.example.Project;
+import Classes.Employee;
+import Classes.EmployeeProjectAssignment;
+import Classes.Project;
 
 import java.util.List;
 
@@ -47,8 +47,12 @@ public class EmployeeProjectAssignmentDAO implements GenericDAO<EmployeeProjectA
         entityManager.remove(entity);
         entityManager.getTransaction().commit();
     }
-    public List<Project> getProjectsByEmployee(Employee employee) {
-        Query query = entityManager.createQuery("SELECT epa.project FROM EmployeeProjectAssignment epa WHERE epa.employee = :employee");
+    public List<ProjectWithImplication> getProjectsWithImplicationByEmployee(Employee employee) {
+        Query query = entityManager.createQuery(
+                "SELECT NEW DAO.ProjectWithImplication(epa.project,epa.implecation) " +
+                        "FROM EmployeeProjectAssignment epa " +
+                        "WHERE epa.employee = :employee"
+        );
         query.setParameter("employee", employee);
         return query.getResultList();
     }

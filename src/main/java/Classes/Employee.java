@@ -1,7 +1,5 @@
-package org.example;
+package Classes;
 import jakarta.persistence.*;
-import org.eclipse.persistence.annotations.BatchFetch;
-import org.eclipse.persistence.annotations.BatchFetchType;
 
 import java.util.List;
 
@@ -81,5 +79,6 @@ public class Employee {
                 ", post=" + post +
                 '}';
     }
+
 }
 

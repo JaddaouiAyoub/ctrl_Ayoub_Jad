@@ -2,7 +2,7 @@ package DAO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
-import org.example.Project;
+import Classes.Project;
 
 import java.util.List;
 

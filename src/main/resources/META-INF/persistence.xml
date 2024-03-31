@@ -5,9 +5,9 @@
              version="2.2">
     <persistence-unit name="myPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>org.example.Employee</class>
-        <class>org.example.Project</class>
-        <class>org.example.EmployeeProjectAssignment</class>
+        <class>Classes.Employee</class>
+        <class>Classes.Project</class>
+        <class>Classes.EmployeeProjectAssignment</class>
     <properties>
         <!-- Propriétés de connexion à la base de données -->
         <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
