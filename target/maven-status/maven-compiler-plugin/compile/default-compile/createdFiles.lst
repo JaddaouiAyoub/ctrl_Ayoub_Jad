@@ -1,0 +1,12 @@
+DAO\GenericDAO.class
+EmployeeBean.class
+Classes\EmployeeProjectAssignment.class
+DAO\EmployeeProjectAssignmentDAO.class
+DAO\Main.class
+AffectationBean.class
+DAO\ProjectDAO.class
+DAO\EmployeeDAO.class
+Classes\Employee.class
+DAO\ProjectWithImplication.class
+Classes\Post.class
+Classes\Project.class

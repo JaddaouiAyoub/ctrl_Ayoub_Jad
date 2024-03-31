@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head>
+    <meta charset="UTF-8" />
+    <title>Liste des employés</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+     <style>
+         .no-bullets {
+             list-style: none;
+         }
+         ul {
+             margin: 0;
+             padding: 0;
+         }
+
+     </style>
+</h:head>
+<h:body>
+    <div class="container">
+        <h1 class="text-center">Liste des employés</h1>
+        <div class="text-center">
+            <h:outputLink value="ajouterEmployee.xhtml">Add Employee</h:outputLink>
+            <h:outputText value=" | " />
+            <h:outputLink value="affectation.xhtml">Affecter Employee</h:outputLink>
+        </div>
+        <hr/>
+        <div class="text-center">
+            <h:messages globalOnly="true" layout="table" styleClass="alert alert-success" rendered="#{not empty employeeBean.suppression}"/>
+        </div>
+        <h:form>
+        <h:dataTable value="#{employeeBean.employees}" var="employee" styleClass="table" border="1">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{employee.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{employee.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{employee.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Skills</f:facet>
+                <ul>
+                    <ui:repeat value="#{employee.skills}" var="skill">
+                        <li class="no-bullets">#{skill}</li>
+                    </ui:repeat>
+                </ul>
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">Projects</f:facet>
+                <ul>
+                    <ui:repeat value="#{employeeBean.getProjects(employee)}" var="project">
+                        <li class="no-bullets">#{project.getName()} (#{project.getImplication()})</li>
+                    </ui:repeat>
+                </ul>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandButton value="remove" styleClass="btn btn-danger" action="#{employeeBean.deleteEmployee(employee.id)}"/>
+            </h:column>
+        </h:dataTable>
+        </h:form>
+    </div>
+</h:body>
+</html>
