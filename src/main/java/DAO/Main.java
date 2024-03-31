@@ -1,6 +1,7 @@
 package DAO;
 
 import Classes.Employee;
+import Classes.EmployeeProjectAssignment;
 import Classes.Project;
 
 import java.util.ArrayList;
@@ -42,31 +43,31 @@ public class Main {
 
      projectDAO.create(project1);
         projectDAO.create(project2);
-      Employee employee = employeeDAO.getById(1L);
-////        // Créer et enregistrer des affectations d'employés à des projets
-//        EmployeeProjectAssignment assignment1 = new EmployeeProjectAssignment();
-//        assignment1.setEmployee(employee1);
-//        assignment1.setProject(project1);
-//        assignment1.setImplecation("Lead Developer");
-//        employeeProjectAssignmentDAO.create(assignment1);
-////
-//        EmployeeProjectAssignment assignment2 = new EmployeeProjectAssignment();
-//        assignment2.setEmployee(employee2);
-//        assignment2.setProject(project1);
-//        assignment2.setImplecation("Tester");
-//        employeeProjectAssignmentDAO.create(assignment2);
-////
-//        EmployeeProjectAssignment assignment3 = new EmployeeProjectAssignment();
-//        assignment3.setEmployee(employee2);
-//        assignment3.setProject(project2);
-//        assignment3.setImplecation("Project Manager");
-//        employeeProjectAssignmentDAO.create(assignment3);
+      Employee employee = employeeDAO.getById(2L);
+//        // Créer et enregistrer des affectations d'employés à des projets
+        EmployeeProjectAssignment assignment1 = new EmployeeProjectAssignment();
+        assignment1.setEmployee(employee1);
+        assignment1.setProject(project1);
+        assignment1.setImplecation("Lead Developer");
+        employeeProjectAssignmentDAO.create(assignment1);
 //
+        EmployeeProjectAssignment assignment2 = new EmployeeProjectAssignment();
+        assignment2.setEmployee(employee2);
+        assignment2.setProject(project1);
+        assignment2.setImplecation("Tester");
+        employeeProjectAssignmentDAO.create(assignment2);
+//
+        EmployeeProjectAssignment assignment3 = new EmployeeProjectAssignment();
+        assignment3.setEmployee(employee2);
+        assignment3.setProject(project2);
+        assignment3.setImplecation("Project Manager");
+        employeeProjectAssignmentDAO.create(assignment3);
+
 //        List<Employee> employees = employeeDAO.getAll();
 //        for(Employee employee:employees){
 //            System.out.println(employee);
 //        }
-        Employee test = employeeDAO.getById(1L);
+        Employee test = employeeDAO.getById(5L);
         List<ProjectWithImplication> projects = employeeProjectAssignmentDAO.getProjectsWithImplicationByEmployee(test);
 
         // Affichage des projets de l'employé

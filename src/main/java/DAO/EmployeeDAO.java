@@ -49,10 +49,17 @@ public class EmployeeDAO implements GenericDAO<Employee, Long> {
     }
 
     @Override
-   @Transactional
+    @Transactional
     public void delete(Employee entity) {
         entityManager.getTransaction().begin();
+
+        // Supprimer les enregistrements dans EMPLOYEE_PROJECT_ASSIGNMENT liés à l'employé
+        Query deleteQuery = entityManager.createQuery("DELETE FROM EmployeeProjectAssignment epa WHERE epa.employee = :employee");
+        deleteQuery.setParameter("employee", entity);
+        deleteQuery.executeUpdate();
+        // Supprimer l'employé
         entityManager.remove(entity);
+
         entityManager.getTransaction().commit();
     }
     public List<Project> getProjectsByEmployeeId(long employeeId) {

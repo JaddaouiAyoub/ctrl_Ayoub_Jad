@@ -11,9 +11,9 @@
     <properties>
         <!-- Propriétés de connexion à la base de données -->
         <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa" />
-        <property name="jakarta.persistence.jdbc.user" value="root" />
-        <property name="jakarta.persistence.jdbc.password" value="" />
+        <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql-1bdf2ec9-jaddaoui-ayoub.a.aivencloud.com:11600/defaultdb" />
+        <property name="jakarta.persistence.jdbc.user" value="avnadmin" />
+        <property name="jakarta.persistence.jdbc.password" value="AVNS_pyirwrLTUo9cGq_SLF6" />
 
         <!-- Propriétés EclipseLink -->
         <property name="eclipselink.ddl-generation" value="none" />

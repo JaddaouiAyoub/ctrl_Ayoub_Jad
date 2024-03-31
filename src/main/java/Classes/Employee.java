@@ -13,6 +13,8 @@ public class Employee {
     private String email;
 
     @ElementCollection
+    @CollectionTable(name = "Employee_Skills", joinColumns = @JoinColumn(name = "employee_id"))
+    @Column(name = "skill")
     private List<String> skills;
 
     @Enumerated(EnumType.STRING)
